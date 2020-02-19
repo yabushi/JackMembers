@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2020-02-19 14:55:15
+  term: MyText
+  band_id: 1
+  hitech: MyText
+  canmod: false
+
+two:
+  date: 2020-02-19 14:55:15
+  term: MyText
+  band_id: 1
+  hitech: MyText
+  canmod: false

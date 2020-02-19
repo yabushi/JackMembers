@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_19_055111) do
+ActiveRecord::Schema.define(version: 2020_02_19_055515) do
 
   create_table "bands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.text "bandname"
@@ -18,6 +18,16 @@ ActiveRecord::Schema.define(version: 2020_02_19_055111) do
     t.integer "teien"
     t.integer "gakunai"
     t.text "notes"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "comas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.datetime "date"
+    t.text "term"
+    t.integer "band_id"
+    t.text "hitech"
+    t.boolean "canmod"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
