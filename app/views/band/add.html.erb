@@ -5,16 +5,16 @@
 
 <hr>
 
-<% if @data.errors.any? %>
+<% if @band.errors.any? %>
     <ul>
-        <% @data.errors.full_messages.each do |err| %>
+        <% @band.errors.full_messages.each do |err| %>
             <li><%= err %></li>
         <% end %>
     </ul>
 <% end %>
 
 <table>
-    <%= form_for(@data, url:{controller:'band', action:'add'}) do |form| %>
+    <%= form_for(@band, url:{controller:'band', action:'add'}) do |form| %>
         <tr><th>バンド名</th>
             <td><%= form.text_field :bandname %></td></tr>
         <tr><th>メンバー</th>

@@ -16,13 +16,14 @@ class BandController < ApplicationController
   
     def add
       @msg = 'バンド追加'
-      @data = Band.new
+      @band = Band.new
     end
     def create
       @data = Band.new bands_params
       if @data.save then
         redirect_to '/band/admin'
       else
+        @bands = Band.where('id > 1').order('teien desc','gakunai desc','created_at asc')
         render '/band/admin'
       end
     end
