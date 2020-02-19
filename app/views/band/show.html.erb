@@ -1,0 +1,25 @@
+<h1>バンド一覧</h1>
+<a href="/user" class="bread">トップ</a> ＞＞ 
+<a href="/band" class="bread">バンド一覧</a> ＞＞ 
+バンド詳細
+
+<hr>
+
+<table>
+    <tr><th>バンド名</th>
+        <td><%= @data.bandname %></td></tr>
+    <tr><th>メンバー</th>
+        <td><%= @data.members %></td></tr>
+    <tr><th>定演</th>
+        <td><%= @data.teien %></td></tr>
+    <tr><th>学内</th>
+        <td><%= @data.gakunai %></td></tr>
+    <tr><th>備考</th>
+        <td><%= @data.notes %></td></tr>
+    <tr><th>部費</th>
+        <td><% @coma.each do |coma| %>
+                <% if coma.band_id == @data.id then %>
+                    <%= coma.date.month %>月.<br>
+                <% end %>
+            <% end %>
+</table> 

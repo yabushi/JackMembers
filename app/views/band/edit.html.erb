@@ -1,0 +1,31 @@
+<h1>管理者/バンド編集画面</h1>
+<a href="/user/admin" class="bread">管理者用/トップ</a> ＞＞ 
+<a href="/band/admin" class="bread">管理者用/バンド一覧</a> ＞＞ 
+管理者/バンド編集画面
+
+<hr>
+
+<% if @data.errors.any? %>
+    <ul>
+        <% @data.errors.full_messages.each do |err| %>
+            <li><%= err %></li>
+        <% end %>
+    </ul>
+<% end %>
+
+<table>
+    <%= form_for(@data, url:{controller:'band', action:'edit', id:@data.id}) do |form| %>
+        <tr><th>バンド名</th>
+            <td><%= form.text_field :bandname %></td></tr>
+        <tr><th>メンバー</th>
+            <td><%= form.text_area :members, {cols:40, rows:10} %></td></tr>
+        <tr><th>定演</th>
+            <td><%= form.text_field :teien %></td></tr>
+        <tr><th>学内</th>
+            <td><%= form.text_field :gakunai %></td></tr>
+        <tr><th>備考</th>
+            <td><%= form.text_field :notes %></td></tr>
+        <tr><th></th>
+            <td><%= form.submit "送信" %></td></tr>
+    <% end %>
+</table> 

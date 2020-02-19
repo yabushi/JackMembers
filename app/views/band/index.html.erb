@@ -1,0 +1,19 @@
+<h1>バンド一覧</h1>
+<a href="/user" class="bread">トップ</a> ＞＞ 
+バンド一覧
+
+<hr>
+
+<table>
+    <tr>
+        <th>バンド名</th><th>定演</th><th>学内</th>
+    </tr>
+
+    <% @bands.each do |obj| %>
+        <tr>
+            <td><a href="/band/<%= obj.id %>"><%= obj.bandname %></a></td>
+            <td><%= obj.teien %></td>
+            <td><%= obj.gakunai %></td>
+        </tr>
+    <% end %>
+</table>

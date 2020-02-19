@@ -1,0 +1,24 @@
+<h1>管理者用/バンド削除確認画面</h1>
+<a href="/user/admin" class="bread">管理者用/トップ</a> ＞＞
+<a href="/band/admin" class="bread">管理者用/バンド一覧</a> ＞＞
+管理者用/バンド削除確認画面
+
+<hr>
+
+<table>
+    <tr><th>バンド名</th>
+        <td><%= @data.bandname %></td></tr>
+    <tr><th>メンバー</th>
+        <td><%= @data.members %></td></tr>
+    <tr><th>定演</th>
+        <td><%= @data.teien %></td></tr>
+    <tr><th>学内</th>
+        <td><%= @data.gakunai %></td></tr>
+    <tr><th>備考</th>
+        <td><%= @data.notes %></td></tr>
+</table>
+
+<%= form_tag controller: "band", action: "delete" do %>
+    <%= hidden_field_tag "id", {value: @data.id} %>
+    <%= submit_tag "送信" %>
+<% end %> 
