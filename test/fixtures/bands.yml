@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bandname: MyText
+  members: MyText
+  teien: 1
+  gakunai: 1
+  notes: MyText
+
+two:
+  bandname: MyText
+  members: MyText
+  teien: 1
+  gakunai: 1
+  notes: MyText
