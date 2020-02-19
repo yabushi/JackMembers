@@ -1,0 +1,67 @@
+<h1>コマ表</h1>
+<a href="/user" class="bread">トップ</a> ＞＞
+コマ表
+
+<hr>
+
+<% i = 0 %>
+    <% @comalist.each do |obj| %>
+        <% if obj.term == "1" then #一限の前に日付などを表示 %>
+            <% if obj.date.wday == 4 then #水曜日なら週の始まりとして区切る%>
+                <table>
+                    <tr>
+                        <th></th><th>1</th><th>2</th><th>昼</th><th>3</th><th>4</th><th>5</th><th>夜1</th><th>夜2</th>
+                    </tr>
+                <% i += 1 %>
+            <% elsif i == 0 then #水曜日ではなく,表の始まりの場合 %>
+                <table>
+                    <tr>
+                        <th></th><th>1</th><th>2</th><th>昼</th><th>3</th><th>4</th><th>5</th><th>夜1</th><th>夜2</th>
+                    </tr>
+                <% i += 1 %>
+            <% end %>
+            <tr>
+            <% if obj.date == Date.today then #今日なら色を変える %>
+                <th class = "today">
+            <% else %>
+                <th>
+            <% end %>
+            <% if obj.date.wday == 4 then #木曜日なら月を表示 %>
+                <%= obj.date.mon %>月
+            <% end %>
+            <%= obj.date.mday %>日</th>
+        <% end %>
+        <td>
+            <% if obj.canmod == true %>
+                <% if obj.hitech == 'ハイテク' then %>
+                    <% if obj.date < Date.today then #日付が当日より前のときリンクを表示しない%>
+                        <%= obj.band.bandname %>
+                    <% else %>
+                        <a href="/coma/edit/<%= obj.id %>"><%= obj.band.bandname %></a>
+                    <% end %>
+                <% else %>
+                    <% if obj.date < Date.today then %>
+                        <%= obj.hitech %>
+                    <% else %>
+                        <a href="/coma/edit/<%= obj.id %>"><%= obj.hitech %></a>
+                    <% end %>
+                    <% if obj.hitech == '' %>
+                        <% if obj.date < Date.today then %>
+                            ハイテク
+                        <% else %>
+                            <a href="/coma/edit/<%= obj.id %>">ハイテク</a><!-- hitech に入力がないとき-->
+                        <% end %>
+                    <% end %>
+                <% end %>
+            <% else %>
+                <%= obj.hitech %>
+            <% end %>
+        </td>
+        <% if obj.term == "夜2" then%>
+            </tr>
+            <% if obj.term == 2 %>
+                </table>
+            <% end %>
+        <% end %>
+    <% end %>
+    

@@ -1,0 +1,28 @@
+<h1><%= @month %>月の部費発生バンドの一覧</h1>
+<a href="/user" class="bread">トップ</a> ＞＞
+<a href="/coma/buhi" class="bread">部費発生状況トップ</a> ＞＞
+<%= @month %>月の部費発生バンドの一覧
+
+<hr>
+
+<h2><%= @month %>月の部費発生バンドの一覧</h2>
+
+<table>
+    <tr>
+        <th>バンド名</th><th>定演</th><th>学内</th>
+    </tr>
+
+    <% @bands.each do |band| %>
+        <% @comas.each do |coma| %>
+            <% if band.id == coma.band_id then %>
+                <tr>
+                    <td><%= band.bandname %></td>
+                    <td><%= band.teien %></td>
+                    <td><%= band.gakunai %></td>
+                    <td><%= band.members %></td>
+                </tr>
+                <% break %>
+            <% end %>
+        <% end %>
+    <% end %> 
+</table> 

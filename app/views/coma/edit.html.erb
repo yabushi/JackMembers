@@ -1,0 +1,27 @@
+<h1>コマ表編集画面</h1>
+<a href="/user" class="bread">トップ</a> ＞＞
+<a href="/coma" class="bread">コマ表</a> ＞＞
+コマ表編集画面
+
+<hr>
+
+<% if @coma.errors.any? %>
+    <ul>
+        <% @data.errors.full_messages.each do |err| %>
+            <li><%= err %></li>
+        <% end %>
+    </ul>
+<% end %>
+
+<table>
+    <tr><th>日付</th>
+        <td><%= @coma.date %></td></tr>
+    <tr><th>時限</th>
+        <td><%= @coma.term %></td></tr>
+    <%= form_for(@coma, url:{controller:'coma', action:'edit', id:@coma.id}) do |form| %>
+        <tr><th>ハイテク</th>
+            <td><%= form.text_field :hitech %></td></tr>
+        <tr><th></th>
+            <td><%= form.submit "変更を送信" %></td></tr>
+    <% end %>
+</table>

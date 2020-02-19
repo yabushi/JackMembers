@@ -1,0 +1,18 @@
+<h1>部費発生状況トップ</h1>
+<a href="/user" class="bread">トップ</a> ＞＞
+部費発生状況トップ
+
+<hr>
+
+<!-- 月を選択させる -->  
+<h2>月を選択してください。</h2>
+
+<% month = 0 %>
+<% @coma.each do |coma| %>
+    <% if coma.date.mon != month %>
+        <div class="item">
+            <a href="/coma/buhi/<%= coma.date.mon %>" class="button"><%= coma.date.mon %>月</a>
+        </div>
+        <% month = coma.date.month %>
+    <% end %>
+<% end %> 

@@ -1,0 +1,50 @@
+<h1>管理者用/コマ編集画面</h1>
+<a href="/user/admin" class="bread">管理者用/トップ</a> ＞＞
+<a href="/coma/admin" class="bread">管理者用/コマ表</a> ＞＞
+管理者用/コマ編集画面
+
+<hr>
+
+<% if @coma.errors.any? %>
+    <ul>
+        <% @coma.errors.full_messages.each do |err| %>
+            <li><%= err %></li>
+        <% end %>
+    </ul>
+<% end %>
+
+<table>
+    <tr><th>日付</th>
+        <td><%= @coma.date %></td></tr>
+    <tr><th>時限</th>
+        <td><%= @coma.term %></td></tr>
+    <%= form_for(@coma, url:{controller:'coma', action:'edit', id:@coma.id}) do |form| %>
+        <tr><th>バンドID</th>
+            <td><%= form.text_field :band_id %></td></tr>
+        <tr><th>ハイテク</th>
+            <td><%= form.text_field :hitech %></td></tr>
+        <tr><th></th>
+            <td><%= form.submit "変更を送信" %></td></tr>
+    <% end %>
+</table>
+
+<table>
+    <tr>
+        <th>id</th><th>バンド名</th><th>id</th><th>バンド名</th>
+    </tr>
+
+    <% i = 0 %>
+    <% @bands.each do |obj| %>
+        <% if i % 2 == 0 then %>
+            <tr>
+        <% end %>
+
+            <td><%= obj.id %></td>
+            <td><a href="/coma/regist/<%= @coma.id %>/<%= obj.id %>"><%= obj.bandname %></a></td>
+
+        <% if i % 2 == 1 then %>
+            </tr>
+        <% end %>
+        <% i += 1 %>
+    <% end %>
+</table> 
