@@ -51,8 +51,13 @@ class ComaController < ApplicationController
     def edit
         @coma = Coma.find(params[:id])
         if request.patch? then
-        @coma.update(comas_params)
-        redirect_to '/coma/index'
+            @coma.update(comas_params)
+
+            if params[:user] == 'admin' then
+                redirect_to '/coma/admin'
+            else
+                redirect_to '/coma'
+            end
         end
     end
 

@@ -13,8 +13,8 @@
     </ul>
 <% end %>
 
-<table>
-    <%= form_for(@band, url:{controller:'band', action:'add'}) do |form| %>
+<%= form_for(@band, url:{controller:'band', action:'add'}) do |form| %>
+    <table>
         <tr><th>バンド名</th>
             <td><%= form.text_field :bandname %></td></tr>
         <tr><th>メンバー</th>
@@ -27,5 +27,6 @@
             <td><%= form.text_field :notes %></td></tr>
         <tr><th></th>
             <td><%= form.submit "送信" %></td></tr>
-    <% end %>
-</table> 
+    
+    </table>
+<% end %>

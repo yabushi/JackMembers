@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'coma', to: 'coma#index'
   get 'coma/add'
   get 'coma/edit/:id', to: 'coma#edit'
-  patch 'coma/edit/:id', to: 'coma#edit'
+  patch 'coma/edit/:id/:user', to: 'coma#edit'
   get 'coma/regist/:coma/:band', to: 'coma#regist'
   get 'coma/delete'
   get 'coma/destroy'

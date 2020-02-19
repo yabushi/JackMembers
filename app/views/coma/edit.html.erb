@@ -13,15 +13,16 @@
     </ul>
 <% end %>
 
-<table>
-    <tr><th>日付</th>
-        <td><%= @coma.date %></td></tr>
-    <tr><th>時限</th>
-        <td><%= @coma.term %></td></tr>
-    <%= form_for(@coma, url:{controller:'coma', action:'edit', id:@coma.id}) do |form| %>
+<%= form_for(@coma, url:{controller:'coma', action:'edit', id:@coma.id, user:'user'}) do |form| %>
+    <table>
+        <tr><th>日付</th>
+            <td><%= @coma.date %></td></tr>
+        <tr><th>時限</th>
+            <td><%= @coma.term %></td></tr>
+
         <tr><th>ハイテク</th>
             <td><%= form.text_field :hitech %></td></tr>
         <tr><th></th>
             <td><%= form.submit "変更を送信" %></td></tr>
-    <% end %>
-</table>
+    </table>
+<% end %>
